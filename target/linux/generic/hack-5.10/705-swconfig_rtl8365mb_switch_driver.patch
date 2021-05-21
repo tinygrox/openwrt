@@ -1,0 +1,23 @@
+--- a/drivers/net/phy/Kconfig
++++ b/drivers/net/phy/Kconfig
+@@ -311,6 +311,10 @@ config RTL8366_SMI_DEBUG_FS
+         depends on DEBUG_FS
+         default n
+ 
++config RTL8365MB_PHY
++        tristate "Driver for the Realtek RTL8365MB switch"
++        select SWCONFIG
++
+ config RTL8366S_PHY
+ 	tristate "Driver for the Realtek RTL8366S switch"
+ 	select SWCONFIG
+--- a/drivers/net/phy/Makefile
++++ b/drivers/net/phy/Makefile
+@@ -31,6 +31,7 @@ obj-$(CONFIG_MVSWITCH_PHY)	+= mvswitch.o
+ obj-$(CONFIG_PSB6970_PHY)	+= psb6970.o
+ obj-$(CONFIG_RTL8306_PHY)	+= rtl8306.o
+ obj-$(CONFIG_RTL8366_SMI)	+= rtl8366_smi.o
++obj-$(CONFIG_RTL8365MB_PHY)	+= rtl8365mb/
+ obj-$(CONFIG_RTL8366S_PHY)	+= rtl8366s.o
+ obj-$(CONFIG_RTL8366RB_PHY)	+= rtl8366rb.o
+ obj-$(CONFIG_RTL8367_PHY)	+= rtl8367.o

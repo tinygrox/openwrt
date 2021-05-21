@@ -386,6 +386,22 @@ endef
 $(eval $(call KernelPackage,switch-rtl8366s))
 
 
+define KernelPackage/switch-rtl8365mb
+  SUBMENU:=$(NETWORK_DEVICES_MENU)
+  TITLE:=Realtek RTL8365MB switch support
+  DEPENDS:=+kmod-switch-rtl8366-smi
+  KCONFIG:=CONFIG_RTL8365MB_PHY
+  FILES:=$(LINUX_DIR)/drivers/net/phy/rtl8365mb/rtl8365mb.ko
+  AUTOLOAD:=$(call AutoLoad,43,rtl8365mb,1)
+endef
+
+define KernelPackage/switch-rtl8365mb/description
+ Realtek RTL8365MB switch support
+endef
+
+$(eval $(call KernelPackage,switch-rtl8365mb))
+
+
 define KernelPackage/switch-rtl8367b
   SUBMENU:=$(NETWORK_DEVICES_MENU)
   TITLE:=Realtek RTL8367R/B switch support
