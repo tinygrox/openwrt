@@ -1,0 +1,13 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+boot() {
+	. /lib/functions.sh
+
+	case $(board_name) in
+		asus,rt-ac88u)
+			# clear et0macaddr which makes cfe recovery mode inaccessible, set eth1 & eth2 mac addresses and wireless LEDs behaviour variables on nvram
+			nvram unset et0macaddr set et1macaddr=$(nvram get 0:macaddr) set et2macaddr=$(nvram get 1:macaddr) set 0:ledbh9=0x7 set 1:ledbh9=0x7 && nvram commit
+			;;
+	esac
+}
