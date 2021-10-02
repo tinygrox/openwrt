@@ -117,6 +117,21 @@ define Device/asrock_g10
 endef
 TARGET_DEVICES += asrock_g10
 
+define Device/asus_brt-ac828
+#	$(call Device/DniImage) #use FitImage & UbiFit if it doesn't work, try LegacyImage if none works
+	DEVICE_VENDOR := ASUS
+	DEVICE_MODEL := BRT-AC828
+	SOC := qcom-ipq8065
+	DEVICE_DTS := qcom-ipq8065-brt-ac828
+#	KERNEL_SIZE := 4096k #not needed to specify?
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+#	BOARD_NAME := brt-ac828 #not needed to specify?
+#	SUPPORTED_DEVICES += brt-ac828 #not needed to specify?
+	DEVICE_PACKAGES := ath10k-firmware-qca9984-ct
+endef
+TARGET_DEVICES += asus_brt-ac828
+
 define Device/buffalo_wxr-2533dhp
 	$(call Device/LegacyImage)
 	SOC := qcom-ipq8064
