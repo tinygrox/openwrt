@@ -1536,6 +1536,16 @@ define Device/winstars_ws-wn583a6
 endef
 TARGET_DEVICES += winstars_ws-wn583a6
 
+define Device/xeront
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  IMAGE_SIZE := 16064k
+  DEVICE_VENDOR := Xeront
+  DEVICE_MODEL := redacted
+  DEVICE_VARIANT := 16M
+endef
+TARGET_DEVICES += xeront
+
 define Device/xiaomi_nand_separate
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)

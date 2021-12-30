@@ -8,6 +8,9 @@ ramips_setup_interfaces()
 	local board="$1"
 
 	case $board in
+	xeront)
+		ucidef_set_interface_lan "sw0p0 sw0p1 sw0p2 sw0p3 sw0p4 sw1p0 sw1p1 sw1p2 sw1p3 sw1p4"
+	;;
 	ampedwireless,ally-00x19k|\
 	edimax,re23s|\
 	mikrotik,routerboard-m11g|\
